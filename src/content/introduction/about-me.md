@@ -188,8 +188,8 @@ Saya selalu terbuka untuk berdiskusi mengenai:
 Jika Anda ingin berdiskusi, berkolaborasi, atau sekadar bertukar ide, jangan ragu untuk terhubung dengan saya.
 
 * **Email:** [azamalbar6@gmail.com](mailto:azamalbar6@gmail.com)
-* **GitHub:** [[GitHub Anda](https://github.com/azhamdev)]
-* **LinkedIn:** [https://www.linkedin.com/in/a-zham-albar-rasyid-958539203/]
+* **GitHub:** [[GitHub azhamdev](https://github.com/azhamdev)]
+* **LinkedIn:** [[Azham Albar Rasyid](https://www.linkedin.com/in/a-zham-albar-rasyid-958539203/)]
 * **Website:** Techade.id
 
 **Terima kasih telah berkunjung.**
