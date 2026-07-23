@@ -2,7 +2,7 @@
 
 Selamat datang di halaman personal saya.
 
-Saya adalah **A'zham Albar Rasyid, S.Kom., M.Kom.**, seorang **Software Engineer, Tech Entrepreneur, Educator, dan Founder/CEO Techade.id — PT Tekadkan Mimpi Indonesia** yang berbasis di Tegal, Indonesia.
+Saya adalah **A'zham Albar Rasyid, S.Kom., M.Kom.**, seorang **Software Engineer, Tech Entrepreneur, Educator, dan Founder/COO Techade.id — PT Tekadkan Mimpi Indonesia** yang berbasis di Tegal, Indonesia.
 
 Saya membangun karier di persimpangan antara **teknologi, bisnis, pendidikan, dan inovasi digital**. Saat ini, saya berfokus pada pengembangan solusi digital untuk organisasi dan perusahaan, khususnya dalam bidang **Enterprise Software, Artificial Intelligence, Large Language Models (LLM), Retrieval-Augmented Generation (RAG), HR Technology, dan Edutech**.
 
@@ -187,9 +187,9 @@ Saya selalu terbuka untuk berdiskusi mengenai:
 
 Jika Anda ingin berdiskusi, berkolaborasi, atau sekadar bertukar ide, jangan ragu untuk terhubung dengan saya.
 
-* **Email:** [email@techade.id](mailto:email@techade.id)
-* **GitHub:** [GitHub Anda]
-* **LinkedIn:** [LinkedIn Anda]
+* **Email:** [azamalbar6@gmail.com](mailto:azamalbar6@gmail.com)
+* **GitHub:** [[GitHub Anda](https://github.com/azhamdev)]
+* **LinkedIn:** [https://www.linkedin.com/in/a-zham-albar-rasyid-958539203/]
 * **Website:** Techade.id
 
 **Terima kasih telah berkunjung.**
