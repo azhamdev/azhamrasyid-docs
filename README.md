@@ -1,4 +1,4 @@
-# Frontend Foundations — a minimalist docs app
+# Techade Dev — a minimalist docs app
 
 A no-database documentation site for sharing course material. Content is plain
 Markdown — one file per topic — read straight from disk by Vite. Built with
