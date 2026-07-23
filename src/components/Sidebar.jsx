@@ -32,7 +32,7 @@ function SideLink({ slug, title, onNavigate }) {
  * navigation moves into it — while still letting the reader toggle it by hand.
  */
 function SubGroup({ section, onNavigate, active }) {
-  const [open, setOpen] = useState(active);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     if (active) setOpen(true);
@@ -106,7 +106,7 @@ function Chapter({ chapter, index, onNavigate, activeSlug }) {
     ) ||
     false;
 
-  const [open, setOpen] = useState(collapsible ? containsActive : true);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     if (containsActive) setOpen(true);

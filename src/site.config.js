@@ -53,4 +53,27 @@ export const chapters = [
       },
     ],
   },
+  {
+    title: 'Pemrograman Aplikasi Perangkat',
+    items: [
+      {
+        slug: 'pengenalan-aplikasi-perangkat',
+        title: 'Pengenalan Aplikasi Perangkat',
+      },
+    ],
+    sections: [
+      {
+        title: 'Mobile',
+        items: [{ slug: 'android-dasar', title: 'Dasar Aplikasi Android' }],
+      },
+      {
+        title: 'Desktop',
+        items: [{ slug: 'desktop-dasar', title: 'Dasar Aplikasi Desktop' }],
+      },
+      {
+        title: 'Lintas Platform',
+        items: [{ slug: 'flutter-dasar', title: 'Dasar Flutter' }],
+      },
+    ],
+  },
 ];

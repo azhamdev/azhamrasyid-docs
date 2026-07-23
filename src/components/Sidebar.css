@@ -1,38 +1,41 @@
 .sidebar {
-  padding: 40px 16px 60px 8px;
+  padding: 24px 12px 48px;
 }
 
+/* --------------------------------------------------------------- chapters -- */
 .side-group + .side-group {
-  margin-top: 28px;
+  margin-top: 4px;
 }
 
+/* Chapter heading — shared by the static <h2> and the collapsible <button>. */
 .side-group-title {
-  font-size: 0.78rem;
-  font-weight: 650;
-  letter-spacing: 0.02em;
-  color: var(--fg);
-  padding: 0 12px;
-  margin-bottom: 8px;
-}
-
-/* Chapter heading that toggles its whole dropdown (only when it has sub-chapters). */
-.side-group-toggle {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 8px;
   width: 100%;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--fg);
+  text-align: left;
+}
+
+/* Collapsible variant: interactive row with a hover surface and a caret. */
+.side-group-toggle {
   border: none;
   background: none;
-  font: inherit;
-  font-size: 0.78rem;
-  font-weight: 650;
-  letter-spacing: 0.02em;
-  color: var(--fg);
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: background var(--dur) var(--ease);
 }
-.side-group-toggle .side-caret {
-  color: var(--fg-muted);
+.side-group-toggle:hover {
+  background: var(--bg-subtle);
+}
+.side-group-toggle > span {
+  flex: 1;
+  min-width: 0;
 }
 
 /* Animated chapter body: framer-motion animates height, so clip the overflow. */
@@ -40,17 +43,12 @@
   overflow: hidden;
 }
 
-.side-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Sub-chapter: a labelled, indented group of pages nested under a chapter. */
+/* ----------------------------------------------------------- sub-chapters -- */
+/* A labelled, indented group of pages nested under a chapter. */
 .side-subgroup {
-  margin-top: 16px;
-  margin-left: 12px;
-  padding-left: 10px;
+  margin-top: 6px;
+  margin-left: 10px;
+  padding-left: 12px;
   border-left: 1px solid var(--border);
 }
 
@@ -58,33 +56,29 @@
 .side-subgroup-title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 8px;
   width: 100%;
-  padding: 4px 12px;
+  padding: 6px 10px;
   border: none;
   background: none;
+  border-radius: var(--radius-sm);
   font: inherit;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--fg-faint);
   cursor: pointer;
-  transition: color var(--dur) var(--ease);
+  text-align: left;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
 }
 .side-subgroup-title:hover {
   color: var(--fg-muted);
+  background: var(--bg-subtle);
 }
-
-/* Chevron rotates from pointing-right (collapsed) to pointing-down (open). */
-.side-caret {
-  flex-shrink: 0;
-  transform: rotate(-90deg);
-  transition: transform var(--dur) var(--ease);
-}
-.side-caret.open {
-  transform: rotate(0deg);
+.side-subgroup-title > span {
+  flex: 1;
+  min-width: 0;
 }
 
 /* Animated dropdown list: framer-motion animates height, so clip the overflow. */
@@ -92,13 +86,33 @@
   overflow: hidden;
 }
 
+/* ------------------------------------------------------------------ caret -- */
+/* Chevron rotates from pointing-right (collapsed) to pointing-down (open). */
+.side-caret {
+  flex-shrink: 0;
+  color: var(--fg-faint);
+  transform: rotate(-90deg);
+  transition: transform var(--dur) var(--ease);
+}
+.side-caret.open {
+  transform: rotate(0deg);
+}
+
+/* ------------------------------------------------------------------ links -- */
+.side-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .side-link {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 7px 12px;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
   color: var(--fg-muted);
   transition: color var(--dur) var(--ease);
 }
