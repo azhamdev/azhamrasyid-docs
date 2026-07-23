@@ -7,13 +7,25 @@
 import { chapters } from '../site.config.js';
 
 // A flat, reading-order list: [{ slug, title, chapter }, ...]
-export const flatPages = chapters.flatMap((chapter) =>
-  chapter.items.map((item) => ({
+// A chapter may hold pages directly (`items`) and/or grouped into sub-chapters
+// (`sections`). Reading order = direct items first, then each section in order.
+export const flatPages = chapters.flatMap((chapter) => {
+  const direct = (chapter.items ?? []).map((item) => ({
     slug: item.slug,
     title: item.title,
     chapter: chapter.title,
-  })),
-);
+  }));
+  // Nested pages get a "Bab · Sub-bab" breadcrumb so the eyebrow and search
+  // results keep their parent context.
+  const nested = (chapter.sections ?? []).flatMap((section) =>
+    section.items.map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      chapter: `${chapter.title} · ${section.title}`,
+    })),
+  );
+  return [...direct, ...nested];
+});
 
 const indexBySlug = new Map(flatPages.map((page, i) => [page.slug, i]));
 
