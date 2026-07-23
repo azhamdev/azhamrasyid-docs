@@ -1,0 +1,58 @@
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--overlay);
+  backdrop-filter: blur(2px);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 95;
+  width: min(84vw, 320px);
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  /* Clip to the drawer's own height so a long chapter list can't spill past
+     the bottom of the screen — it scrolls inside .drawer-body instead. */
+  overflow: hidden;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--topbar-h);
+  padding: 0 12px 0 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.drawer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 640;
+}
+
+.drawer-body {
+  flex: 1;
+  /* min-height:0 lets this flex child shrink below its content height so it
+     becomes a real scroll area; without it, a tall menu (many chapters) can
+     refuse to scroll in some browsers. */
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain; /* don't chain scroll to the locked page */
+  -webkit-overflow-scrolling: touch; /* momentum scrolling on iOS */
+}
+
+/* Only ever visible on small screens. */
+@media (min-width: 821px) {
+  .drawer,
+  .drawer-overlay {
+    display: none;
+  }
+}

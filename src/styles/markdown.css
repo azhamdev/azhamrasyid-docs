@@ -1,0 +1,242 @@
+/* ============================================================================
+   Prose styling for rendered Markdown. Tuned for long-form reading:
+   generous line-height, tight heading rhythm, monochrome code.
+   ========================================================================== */
+
+.prose {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--fg);
+}
+
+.prose > * + * {
+  margin-top: 1.15em;
+}
+
+.prose h1 {
+  font-size: 2.4rem;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin: 0 0 0.2em;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  font-weight: 650;
+  margin-top: 2.4em;
+  padding-top: 0.4em;
+}
+
+.prose h3 {
+  font-size: 1.18rem;
+  font-weight: 640;
+  margin-top: 1.8em;
+}
+
+/* Anchor affordance on hover — a subtle "#" like most docs sites. */
+.prose h2,
+.prose h3 {
+  scroll-margin-top: calc(var(--topbar-h) + 24px);
+  position: relative;
+}
+.heading-anchor {
+  position: absolute;
+  left: -1.2em;
+  opacity: 0;
+  color: var(--fg-faint);
+  transition: opacity var(--dur) var(--ease);
+  text-decoration: none;
+}
+.prose h2:hover .heading-anchor,
+.prose h3:hover .heading-anchor {
+  opacity: 1;
+}
+
+.prose p {
+  color: var(--fg);
+}
+
+.prose a:not(.heading-anchor) {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--dur) var(--ease);
+}
+.prose a:not(.heading-anchor):hover {
+  text-decoration-color: var(--fg);
+}
+
+.prose strong {
+  font-weight: 680;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.35em;
+}
+.prose li {
+  margin-top: 0.4em;
+}
+.prose li::marker {
+  color: var(--fg-faint);
+}
+
+/* Inline code */
+.prose :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.12em 0.4em;
+  white-space: nowrap;
+}
+
+/* Code blocks */
+.prose pre {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  overflow-x: auto;
+  tab-size: 2;
+}
+.prose pre code {
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  white-space: pre;
+}
+
+.prose kbd {
+  font-family: var(--font-mono);
+  font-size: 0.76em;
+  line-height: 1;
+  padding: 3px 6px;
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--bg-subtle);
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--fg);
+  padding: 2px 0 2px 18px;
+  color: var(--fg-muted);
+  font-style: normal;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.4em 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: block;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose th,
+.prose td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.prose th {
+  font-weight: 620;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+/* Captioned images emitted by our custom image renderer (span-based so they
+   remain valid inside a paragraph). */
+.md-figure {
+  display: block;
+  margin: 0.4em 0;
+}
+.md-figcaption {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--fg-faint);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Monochrome syntax highlighting.
+   rehype-highlight adds .hljs-* classes; we map them all to shades of gray
+   plus weight/italic so code stays readable without leaving the palette.
+   -------------------------------------------------------------------------- */
+.hljs-comment,
+.hljs-quote {
+  color: var(--fg-faint);
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-name {
+  color: var(--fg);
+  font-weight: 640;
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: var(--fg-muted);
+}
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-variable,
+.hljs-template-variable {
+  color: var(--fg-muted);
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.function_,
+.hljs-section,
+.hljs-built_in,
+.hljs-type {
+  color: var(--fg);
+  font-weight: 600;
+}
+.hljs-attr,
+.hljs-property {
+  color: var(--fg-muted);
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}
+.hljs-deletion {
+  color: var(--fg-faint);
+  text-decoration: line-through;
+}

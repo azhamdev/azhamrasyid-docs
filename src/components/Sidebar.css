@@ -1,0 +1,64 @@
+.sidebar {
+  padding: 40px 16px 60px 8px;
+}
+
+.side-group + .side-group {
+  margin-top: 28px;
+}
+
+.side-group-title {
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  padding: 0 12px;
+  margin-bottom: 8px;
+}
+
+.side-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  transition: color var(--dur) var(--ease);
+}
+.side-link:hover {
+  color: var(--fg);
+}
+.side-link.active {
+  color: var(--accent);
+  font-weight: 550;
+}
+
+/* The pill that slides between items — animated with framer-motion layoutId. */
+.side-active {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  z-index: 0;
+}
+.side-link-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* The rail wrapper (applied in Layout) makes the sidebar sticky and scrollable. */
+.sidebar-rail {
+  position: sticky;
+  top: var(--topbar-h);
+  align-self: start;
+  height: calc(100dvh - var(--topbar-h));
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+}

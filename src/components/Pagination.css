@@ -1,0 +1,59 @@
+.pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.pager-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.pager-card:hover {
+  border-color: var(--fg-muted);
+  transform: translateY(-2px);
+}
+.pager-card.next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.pager-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--fg-faint);
+}
+
+.pager-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+/* The prev card's arrow nudges left, next card's nudges right on hover. */
+.pager-card.prev:hover .pager-eyebrow svg {
+  transform: translateX(-3px);
+}
+.pager-card.next:hover .pager-eyebrow svg {
+  transform: translateX(3px);
+}
+.pager-eyebrow svg {
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (max-width: 560px) {
+  .pager {
+    grid-template-columns: 1fr;
+  }
+}
