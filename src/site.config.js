@@ -110,4 +110,80 @@ export const chapters = [
       },
     ],
   },
+  {
+    title: 'Bisnis Digital',
+    items: [
+      {
+        slug: 'pengenalan-bisnis-digital',
+        title: 'Pengenalan Bisnis Digital',
+      },
+    ],
+    sections: [
+      {
+        title: 'Fondasi (Dasar)',
+        items: [
+          {
+            slug: 'bisnis-digital-konsep-model',
+            title: 'Konsep & Model Bisnis Digital',
+          },
+          {
+            slug: 'bisnis-digital-ekosistem-peluang',
+            title: 'Ekosistem & Peluang Pasar',
+          },
+        ],
+      },
+      {
+        title: 'Kehadiran Digital (Dasar)',
+        items: [
+          {
+            slug: 'bisnis-digital-website-toko-online',
+            title: 'Membangun Website & Toko Online',
+          },
+          {
+            slug: 'bisnis-digital-media-sosial-konten',
+            title: 'Media Sosial & Pemasaran Konten',
+          },
+        ],
+      },
+      {
+        title: 'Pemasaran Digital (Menengah)',
+        items: [
+          {
+            slug: 'bisnis-digital-strategi-pemasaran',
+            title: 'Strategi & Funnel Pemasaran',
+          },
+          {
+            slug: 'bisnis-digital-seo-iklan',
+            title: 'SEO & Iklan Berbayar',
+          },
+        ],
+      },
+      {
+        title: 'Monetisasi & Data (Menengah)',
+        items: [
+          {
+            slug: 'bisnis-digital-monetisasi-pembayaran',
+            title: 'Model Pendapatan & Pembayaran',
+          },
+          {
+            slug: 'bisnis-digital-analitik-data',
+            title: 'Analitik & Keputusan Berbasis Data',
+          },
+        ],
+      },
+      {
+        title: 'Skala & Praktik (Menengah)',
+        items: [
+          {
+            slug: 'bisnis-digital-otomasi-skala',
+            title: 'Otomasi & Skalabilitas',
+          },
+          {
+            slug: 'bisnis-digital-studi-kasus-praktik',
+            title: 'Studi Kasus & Rencana Aksi',
+          },
+        ],
+      },
+    ],
+  },
 ];
