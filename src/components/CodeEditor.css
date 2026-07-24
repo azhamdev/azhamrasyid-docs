@@ -1,0 +1,81 @@
+/* ============================================================================
+   Editor kode: textarea transparan di atas <pre> hasil highlight.
+   Kuncinya: font, ukuran, line-height, dan padding KEDUA lapisan harus persis
+   sama supaya kursor selalu jatuh tepat di atas huruf yang diketik.
+   ========================================================================== */
+
+.ce {
+  display: flex;
+  background: var(--code-bg);
+  max-height: 380px;
+  overflow: auto;
+  /* Satu sumber kebenaran untuk metrik teks kedua lapisan. */
+  --ce-font: 0.85rem/1.7 var(--font-mono);
+  --ce-pad: 14px;
+}
+
+/* ------------------------------------------------------------- nomor baris */
+.ce-gutter {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--ce-pad) 0;
+  background: var(--code-bg);
+  border-right: 1px solid var(--border);
+  font: var(--ce-font);
+  text-align: right;
+  color: var(--fg-faint);
+  user-select: none;
+}
+.ce-gutter span {
+  padding: 0 10px 0 14px;
+  min-width: 3.2em;
+}
+
+/* --------------------------------------------------------------- dua lapis */
+.ce-area {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.ce-highlight,
+.ce-input {
+  margin: 0;
+  border: 0;
+  padding: var(--ce-pad) 16px;
+  font: var(--ce-font);
+  tab-size: 2;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
+.ce-highlight {
+  pointer-events: none;
+  min-height: 100%;
+}
+.ce-highlight code {
+  font: inherit;
+  display: block;
+}
+
+.ce-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  overflow: hidden;
+  background: transparent;
+  color: transparent;        /* huruf digambar oleh lapisan highlight */
+  caret-color: var(--fg);    /* …tapi kursor tetap terlihat */
+  outline: none;
+}
+.ce-input::selection {
+  background: color-mix(in srgb, var(--fg) 18%, transparent);
+  color: transparent;
+}

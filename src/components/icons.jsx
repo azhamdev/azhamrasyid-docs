@@ -102,3 +102,40 @@ export const CornerReturnIcon = (p) => (
     <path d="M20 4v7a4 4 0 0 1-4 4H4" />
   </svg>
 );
+
+/* --- Latihan koding ------------------------------------------------------ */
+
+export const CodeIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="m8 17-5-5 5-5M16 7l5 5-5 5M14 4l-4 16" />
+  </svg>
+);
+
+export const BulbIcon = (p) => (
+  <svg {...base} width={16} height={16} {...p}>
+    <path d="M9 18h6M10 21h4" />
+    <path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8.9.9 1.5l.1.7h5.2l.1-.7c.1-.6.4-1.1.9-1.5A6 6 0 0 0 12 3z" />
+  </svg>
+);
+
+export const BookIcon = (p) => (
+  <svg {...base} width={14} height={14} {...p}>
+    <path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5z" />
+    <path d="M4 16.5A1.5 1.5 0 0 1 5.5 15H19" />
+  </svg>
+);
+
+export const PlayIcon = (p) => (
+  <svg {...base} width={14} height={14} {...p}>
+    <path d="M7 4.5v15l12-7.5z" />
+  </svg>
+);
+
+export const RefreshIcon = (p) => (
+  <svg {...base} width={14} height={14} {...p}>
+    <path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.5" />
+    <path d="M4 4v4.5h4.5" />
+    <path d="M4 13a8 8 0 0 0 13.7 4.7L20 15.5" />
+    <path d="M20 20v-4.5h-4.5" />
+  </svg>
+);

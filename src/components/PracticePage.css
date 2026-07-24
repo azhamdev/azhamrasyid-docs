@@ -1,0 +1,396 @@
+/* ============================================================================
+   Halaman Latihan Koding. Memakai token warna yang sama dengan halaman docs
+   supaya tetap hitam-putih dan konsisten di mode terang maupun gelap.
+   ========================================================================== */
+
+.pr-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 24px 120px;
+}
+
+/* ------------------------------------------------------------------ hero -- */
+.pr-hero h1 {
+  font-size: 2.4rem;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.pr-lead {
+  color: var(--fg-muted);
+  max-width: 60ch;
+}
+
+/* --------------------------------------------------------------- progres -- */
+.pr-progress {
+  margin-top: 28px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+}
+.pr-progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  margin-bottom: 10px;
+}
+.pr-progress-top strong {
+  color: var(--fg);
+  font-weight: 650;
+}
+.pr-progress-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.pr-percent {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--fg);
+}
+.pr-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--fg-faint);
+  transition: color var(--dur) var(--ease);
+}
+.pr-reset:hover {
+  color: var(--fg);
+}
+
+.pr-bar {
+  height: 6px;
+  border-radius: 6px;
+  background: var(--border);
+  overflow: hidden;
+}
+.pr-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 6px;
+}
+
+/* ---------------------------------------------------------------- filter -- */
+.pr-filters {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pr-filter {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.pr-filter-label {
+  flex-shrink: 0;
+  width: 48px;
+  font-size: 0.78rem;
+  font-weight: 620;
+  letter-spacing: 0.02em;
+  color: var(--fg-faint);
+  text-transform: uppercase;
+}
+.pr-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pr-chip {
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  color: var(--fg-muted);
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+.pr-chip:hover {
+  border-color: var(--fg-muted);
+  color: var(--fg);
+}
+.pr-chip.is-on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.pr-count {
+  margin-top: 18px;
+  font-size: 0.84rem;
+  color: var(--fg-faint);
+}
+
+/* ------------------------------------------------------------ satu topik -- */
+.pr-set {
+  margin-top: 44px;
+}
+.pr-set-head h2 {
+  font-size: 1.32rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.pr-set-head p {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+}
+
+.pr-list {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ------------------------------------------------------------- satu soal -- */
+.pr-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  background: var(--bg);
+  transition: border-color var(--dur) var(--ease);
+}
+.pr-card:hover {
+  border-color: var(--border-strong);
+}
+/* Soal yang sudah dikerjakan diredupkan, tapi tetap terbaca. */
+.pr-card.is-done {
+  background: var(--bg-subtle);
+}
+.pr-card.is-done .pr-title {
+  color: var(--fg-muted);
+}
+
+.pr-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.pr-num {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg-faint);
+  padding-top: 3px;
+}
+
+.pr-head-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pr-title {
+  font-size: 1.02rem;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+
+/* Badge level — dibedakan lewat ketebalan garis, bukan warna. */
+.pr-level {
+  padding: 2px 9px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+.pr-level[data-level='Menengah'] {
+  border-color: var(--fg-faint);
+  color: var(--fg);
+}
+.pr-level[data-level='Lanjut'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.pr-done {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--fg-faint);
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+.pr-done:hover {
+  border-color: var(--fg-muted);
+  color: var(--fg);
+}
+.pr-done.is-on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.pr-question {
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+/* Kode inline di dalam soal / ide. */
+.pr-question code,
+.pr-ideas code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.1em 0.36em;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------- tombol ide pengerjaan -- */
+.pr-toggle {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  color: var(--fg-muted);
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.pr-toggle:hover {
+  border-color: var(--fg-muted);
+  color: var(--fg);
+}
+.pr-toggle.is-open {
+  border-style: solid;
+}
+.pr-caret {
+  transition: transform var(--dur) var(--ease);
+}
+.pr-toggle.is-open .pr-caret {
+  transform: rotate(180deg);
+}
+
+/* framer-motion menganimasikan height, jadi overflow harus dipotong. */
+.pr-reveal {
+  overflow: hidden;
+}
+.pr-reveal-inner {
+  padding-top: 14px;
+}
+
+.pr-ideas {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+}
+.pr-ideas li::marker {
+  color: var(--fg-faint);
+}
+
+/* --------------------------------------------------------- kode awal ----- */
+.pr-starter {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.pr-starter-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.76rem;
+  color: var(--fg-faint);
+}
+.pr-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: var(--fg-muted);
+  transition: color var(--dur) var(--ease);
+}
+.pr-copy:hover {
+  color: var(--fg);
+}
+.pr-starter pre {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  background: var(--code-bg);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  tab-size: 2;
+}
+
+.pr-doclink {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
+  transition: color var(--dur) var(--ease);
+}
+.pr-doclink:hover {
+  color: var(--fg);
+  text-decoration-color: var(--fg);
+}
+
+.pr-empty {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--fg-faint);
+}
+
+/* ------------------------------------------------------------- responsif -- */
+@media (max-width: 640px) {
+  .pr-page {
+    padding: 32px 18px 100px;
+  }
+  .pr-hero h1 {
+    font-size: 1.9rem;
+  }
+  .pr-filter {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pr-filter-label {
+    width: auto;
+  }
+  /* Tombol "Tandai" turun ke bawah judul agar tidak berdesakan. */
+  .pr-card-head {
+    flex-wrap: wrap;
+  }
+  .pr-done {
+    order: 3;
+  }
+}

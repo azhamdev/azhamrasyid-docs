@@ -12,6 +12,7 @@ import TopBar from './components/TopBar.jsx';
 import SearchDialog from './components/SearchDialog.jsx';
 import MobileNav from './components/MobileNav.jsx';
 import DocPage from './components/DocPage.jsx';
+import PracticePage from './components/PracticePage.jsx';
 import { firstSlug } from './lib/navigation.js';
 import { useScrollProgress } from './hooks/useScrollProgress.js';
 
@@ -75,6 +76,9 @@ export default function App() {
         <Route element={<AppShell />}>
           {/* Landing → first page in the first chapter. */}
           <Route index element={<Navigate to={`/${firstSlug}`} replace />} />
+          {/* Halaman latihan koding — segmen statis, jadi selalu menang
+              atas "/:slug" di bawahnya. */}
+          <Route path="/latihan" element={<PracticePage />} />
           <Route path="/:slug" element={<DocPage />} />
           <Route path="*" element={<DocPage />} />
         </Route>

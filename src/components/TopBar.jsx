@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { site } from '../site.config.js';
 import { firstSlug } from '../lib/navigation.js';
@@ -9,6 +9,7 @@ import {
   SearchIcon,
   MenuIcon,
   GithubIcon,
+  CodeIcon,
 } from './icons.jsx';
 import './TopBar.css';
 
@@ -34,6 +35,17 @@ export default function TopBar({ onOpenSearch, onOpenMenu, isMac }) {
         </div>
 
         <div className="topbar-right">
+          {/* Tombol menuju halaman latihan koding. */}
+          <NavLink
+            to="/latihan"
+            className={({ isActive }) =>
+              `practice-btn${isActive ? ' is-active' : ''}`
+            }
+          >
+            <CodeIcon width={16} height={16} />
+            <span className="practice-btn-text">Latihan</span>
+          </NavLink>
+
           <button className="search-trigger" onClick={onOpenSearch}>
             <SearchIcon width={16} height={16} />
             <span>Search</span>
