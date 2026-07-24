@@ -95,7 +95,9 @@
   white-space: nowrap;
 }
 
-/* Code blocks */
+/* Code blocks. Fenced code is rendered by <CodeBlock>, which owns the frame,
+   header and gutter (CodeBlock.css); this is the bare fallback for any <pre>
+   that reaches the page without it. */
 .prose pre {
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -183,60 +185,92 @@
 }
 
 /* --------------------------------------------------------------------------
-   Monochrome syntax highlighting.
-   rehype-highlight adds .hljs-* classes; we map them all to shades of gray
-   plus weight/italic so code stays readable without leaving the palette.
+   Syntax highlighting. rehype-highlight adds the .hljs-* classes; we map them
+   onto the --syn-* tokens (globals.css) so both themes stay in step. Anything
+   left unmapped — punctuation, operators, plain identifiers — inherits --fg.
    -------------------------------------------------------------------------- */
 .hljs-comment,
 .hljs-quote {
-  color: var(--fg-faint);
+  color: var(--syn-comment);
   font-style: italic;
 }
+
+/* Keywords & language constructs */
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
 .hljs-doctag,
-.hljs-name {
-  color: var(--fg);
-  font-weight: 640;
+.hljs-formula,
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-selector-pseudo {
+  color: var(--syn-keyword);
 }
+
+/* Markup tag names and CSS selectors */
+.hljs-name,
+.hljs-selector-tag,
+.hljs-section {
+  color: var(--syn-tag);
+}
+
 .hljs-string,
 .hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
+.hljs-char.escape_,
 .hljs-meta .hljs-string {
-  color: var(--fg-muted);
+  color: var(--syn-string);
 }
+
+/* Constants, numbers, and the identifier-ish bits that read as values */
 .hljs-number,
+.hljs-literal,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-link,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attr,
+.hljs-attribute,
+.hljs-property,
 .hljs-selector-id,
 .hljs-selector-class,
-.hljs-variable,
-.hljs-template-variable {
-  color: var(--fg-muted);
+.hljs-selector-attr,
+.hljs-link {
+  color: var(--syn-const);
 }
+
+/* Callables */
 .hljs-title,
-.hljs-title.class_,
 .hljs-title.function_,
-.hljs-section,
-.hljs-built_in,
-.hljs-type {
-  color: var(--fg);
-  font-weight: 600;
+.hljs-built_in {
+  color: var(--syn-fn);
 }
-.hljs-attr,
-.hljs-property {
-  color: var(--fg-muted);
+
+/* Types and class names */
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-type,
+.hljs-params .hljs-type {
+  color: var(--syn-type);
 }
+
+/* Diff fences */
+.hljs-addition {
+  color: var(--syn-added);
+  background: var(--syn-added-bg);
+  display: inline-block;
+  width: 100%;
+}
+.hljs-deletion {
+  color: var(--syn-removed);
+  background: var(--syn-removed-bg);
+  display: inline-block;
+  width: 100%;
+}
+
 .hljs-emphasis {
   font-style: italic;
 }
 .hljs-strong {
   font-weight: 700;
 }
-.hljs-deletion {
-  color: var(--fg-faint);
-  text-decoration: line-through;
+.hljs-link {
+  text-decoration: underline;
 }

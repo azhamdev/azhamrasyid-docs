@@ -18,6 +18,20 @@
   --code-bg: #f6f6f6;
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   --overlay: rgba(0, 0, 0, 0.4);
+
+  /* Syntax colors — the one place the monochrome rule is relaxed, because
+     hue carries real meaning in code. Tuned for contrast on --code-bg. */
+  --syn-comment: #6a737d;
+  --syn-keyword: #cf222e;
+  --syn-string: #0a3069;
+  --syn-const: #0550ae;
+  --syn-fn: #8250df;
+  --syn-type: #953800;
+  --syn-tag: #116329;
+  --syn-added: #116329;
+  --syn-added-bg: #dafbe1;
+  --syn-removed: #82071e;
+  --syn-removed-bg: #ffebe9;
 }
 
 :root[data-theme='dark'] {
@@ -34,6 +48,18 @@
   --code-bg: #101010;
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
   --overlay: rgba(0, 0, 0, 0.6);
+
+  --syn-comment: #8b949e;
+  --syn-keyword: #ff7b72;
+  --syn-string: #a5d6ff;
+  --syn-const: #79c0ff;
+  --syn-fn: #d2a8ff;
+  --syn-type: #ffa657;
+  --syn-tag: #7ee787;
+  --syn-added: #aff5b4;
+  --syn-added-bg: #033a16;
+  --syn-removed: #ffdcd7;
+  --syn-removed-bg: #67060c;
 }
 
 :root {

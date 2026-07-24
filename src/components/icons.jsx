@@ -69,6 +69,33 @@ export const GithubIcon = (p) => (
   </svg>
 );
 
+export const CopyIcon = (p) => (
+  <svg {...base} width={14} height={14} {...p}>
+    <rect x="9" y="9" width="12" height="12" rx="2.5" />
+    <path d="M15 5.5A2.5 2.5 0 0 0 12.5 3h-7A2.5 2.5 0 0 0 3 5.5v7A2.5 2.5 0 0 0 5.5 15" />
+  </svg>
+);
+
+export const CheckIcon = (p) => (
+  <svg {...base} width={14} height={14} {...p}>
+    <path d="m4 12.5 5 5L20 6.5" />
+  </svg>
+);
+
+export const ChevronDownIcon = (p) => (
+  <svg {...base} width={14} height={14} {...p}>
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
+export const WrapIcon = (p) => (
+  <svg {...base} width={14} height={14} {...p}>
+    <path d="M3 6h18M3 18h7" />
+    <path d="M3 12h14a3.5 3.5 0 0 1 0 7h-3" />
+    <path d="m16 16-2 3 2 3" />
+  </svg>
+);
+
 export const CornerReturnIcon = (p) => (
   <svg {...base} width={14} height={14} {...p}>
     <path d="M9 10 4 15l5 5" />

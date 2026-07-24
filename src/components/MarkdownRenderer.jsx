@@ -4,7 +4,11 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import rehypeHighlight from 'rehype-highlight';
+import { common } from 'lowlight';
+import dart from 'highlight.js/lib/languages/dart';
 import { HashIcon } from './icons.jsx';
+import CodeBlock from './CodeBlock.jsx';
+import rehypeCodeMeta from '../lib/rehype-code-meta.js';
 
 /* rehype-slug gives every heading a stable `id`; we reuse it for the hover
    anchor link, matching the ids the TOC generates. */
@@ -52,6 +56,7 @@ const components = {
   h3: (props) => <Heading level={3} {...props} />,
   a: Anchor,
   img: Figure,
+  pre: CodeBlock,
 };
 
 export default function MarkdownRenderer({ markdown }) {
@@ -59,12 +64,20 @@ export default function MarkdownRenderer({ markdown }) {
     <div className="prose">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        // rehypeRaw runs first so inline HTML (e.g. <kbd>) becomes real nodes,
+        // rehypeCodeMeta must precede rehypeRaw (which drops hast `data`);
+        // rehypeRaw then turns inline HTML (e.g. <kbd>) into real nodes,
         // then headings get ids, then code gets highlighted.
         rehypePlugins={[
+          rehypeCodeMeta,
           rehypeRaw,
           rehypeSlug,
-          [rehypeHighlight, { detect: true, ignoreMissing: true }],
+          // `dart` isn't in lowlight's common set, so Flutter snippets would
+          // otherwise render with no highlighting at all. `languages` REPLACES
+          // the default set rather than extending it — hence spreading common.
+          [
+            rehypeHighlight,
+            { detect: true, ignoreMissing: true, languages: { ...common, dart } },
+          ],
         ]}
         components={components}
       >

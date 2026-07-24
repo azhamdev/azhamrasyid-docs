@@ -1,0 +1,228 @@
+/* ============================================================================
+   Framed code blocks: header (language / filename + actions), sticky line
+   gutter, and wrap / expand affordances. Monochrome like the rest of the site.
+   ========================================================================== */
+
+.code-block {
+  --code-pad-y: 16px;
+  --code-pad-x: 18px;
+  --code-size: 0.85rem;
+  --code-line: 1.7;
+
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------------ head -- */
+.code-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 8px 0 var(--code-pad-x);
+  border-bottom: 1px solid var(--border);
+}
+
+.code-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* A filename is code, not a label — show it as typed. */
+.code-label.is-file {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--fg);
+}
+
+.code-lang {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.code-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.code-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 9px;
+  border-radius: var(--radius-sm);
+  font-size: 0.74rem;
+  font-weight: 550;
+  color: var(--fg-faint);
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.code-btn:hover {
+  color: var(--fg);
+  background: var(--bg-subtle);
+}
+.code-btn:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: -2px;
+}
+.code-btn.is-on {
+  color: var(--fg);
+  background: var(--bg-subtle);
+}
+.code-copy svg {
+  flex: none;
+}
+
+/* ------------------------------------------------------------------ body -- */
+.code-body {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: var(--code-size);
+  line-height: var(--code-line);
+}
+
+/* Collapsed listings stop at ~18 lines; the fade below hints at the rest. */
+.code-body.is-collapsed {
+  max-height: calc(var(--code-size) * var(--code-line) * 18 + var(--code-pad-y) * 2);
+  overflow-y: hidden;
+}
+
+.code-body.is-wrapped {
+  overflow-x: hidden;
+}
+
+.code-gutter {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  padding: var(--code-pad-y) 14px var(--code-pad-y) var(--code-pad-x);
+  background: var(--code-bg);
+  border-right: 1px solid var(--border);
+  text-align: right;
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Wrapped lines no longer map 1:1 to gutter rows, so drop the numbers. */
+.code-body.is-wrapped .code-gutter {
+  display: none;
+}
+
+.code-block .code-body pre {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  padding: var(--code-pad-y) var(--code-pad-x);
+  background: none;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  font: inherit;
+  tab-size: 2;
+}
+.code-body.has-gutter pre {
+  padding-left: 14px;
+}
+.code-body.is-wrapped pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ---------------------------------------------------------------- expand -- */
+.code-expand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 9px 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.76rem;
+  font-weight: 550;
+  color: var(--fg-muted);
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.code-expand:hover {
+  color: var(--fg);
+  background: var(--bg-subtle);
+}
+/* Replace the UA's blue ring with one that belongs to the palette. */
+.code-expand:focus {
+  outline: none;
+}
+.code-expand:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: -2px;
+}
+.code-expand svg {
+  transition: transform var(--dur) var(--ease);
+}
+.code-expand.is-open svg {
+  transform: rotate(180deg);
+}
+
+/* Fade the last collapsed lines into the toggle. */
+.code-expand:not(.is-open)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 56px;
+  background: linear-gradient(to bottom, transparent, var(--code-bg));
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------- responsive */
+@media (max-width: 620px) {
+  .code-block {
+    --code-pad-x: 14px;
+    /* Full-bleed to the edges of .main so narrow screens get more columns. */
+    margin-inline: -20px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  /* Clipped rather than display:none — the label is the button's accessible
+     name, and hiding it outright would leave the icon unlabelled. */
+  .code-copy-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .code-btn {
+    padding: 0 8px;
+  }
+}
