@@ -54,6 +54,40 @@ export const chapters = [
     ],
   },
   {
+    title: 'Algoritma Dasar',
+    items: [
+      { slug: 'algoritma-pengenalan', title: 'Pengenalan Algoritma' },
+    ],
+    sections: [
+      {
+        title: 'Rekursi & Perulangan',
+        items: [
+          {
+            slug: 'algoritma-rekursi-perulangan',
+            title: 'Rekursi & Perulangan',
+          },
+        ],
+      },
+      {
+        title: 'Angka & Teks',
+        items: [{ slug: 'algoritma-angka-teks', title: 'Angka & Teks' }],
+      },
+      {
+        title: 'Pencarian & Pengurutan',
+        items: [
+          {
+            slug: 'algoritma-pencarian-pengurutan',
+            title: 'Pencarian & Pengurutan',
+          },
+        ],
+      },
+      {
+        title: 'Praktik & Ringkasan',
+        items: [{ slug: 'algoritma-praktik', title: 'Praktik & Ringkasan' }],
+      },
+    ],
+  },
+  {
     title: 'Pemrograman Aplikasi Perangkat',
     items: [
       {
