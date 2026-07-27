@@ -41,7 +41,15 @@ export const chapters = [
     sections: [
       {
         title: 'HTML',
-        items: [{ slug: 'html-dasar', title: 'Dasar HTML' }],
+        items: [
+          { slug: 'html-dasar', title: 'Dasar HTML' },
+          { slug: 'html-teks-tautan', title: 'Teks, Daftar & Tautan' },
+          { slug: 'html-gambar-media', title: 'Gambar & Media' },
+          { slug: 'html-tabel', title: 'Tabel' },
+          { slug: 'html-form', title: 'Formulir & Input' },
+          { slug: 'html-semantik', title: 'Semantik & Aksesibilitas' },
+          { slug: 'html-studi-kasus', title: 'Studi Kasus: Landing Page' },
+        ],
       },
       {
         title: 'CSS',

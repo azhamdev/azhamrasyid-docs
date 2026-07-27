@@ -132,5 +132,5 @@ Coba buat file bernama `index.html`, salin kode berikut, lalu buka di peramban:
 
 ## Selanjutnya
 
-Lanjut ke [CSS — Mempercantik Halaman](/css-dasar) untuk memberi gaya pada
-halaman Anda.
+Fondasi sudah dipahami. Lanjut memperdalam cara menata isi tulisan di
+[Teks, Daftar & Tautan](/html-teks-tautan).
